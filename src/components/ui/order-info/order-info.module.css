@@ -2,8 +2,10 @@
   margin: 0 auto;
   width: 640px;
 }
+
 .number {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .status {
@@ -71,6 +73,11 @@
   justify-content: flex-start;
   align-items: center;
 }
+
 .total {
   margin-left: auto;
+}
+
+.text-center {
+  text-align: center;
 }
