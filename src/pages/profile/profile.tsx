@@ -8,28 +8,23 @@ export const Profile: FC = () => {
   const name = useSelector(selectUserName);
   const email = useSelector(selectUserEmail);
 
-  const user = {
-    name: name,
-    email: email
-  };
-
   const [formValue, setFormValue] = useState({
-    name: user.name,
-    email: user.email,
+    name: name,
+    email: email,
     password: ''
   });
 
   useEffect(() => {
     setFormValue((prevState) => ({
       ...prevState,
-      name: user?.name || '',
-      email: user?.email || ''
+      name: name || '',
+      email: email || ''
     }));
-  }, [user]);
+  }, [name, email]);
 
   const isFormChanged =
-    formValue.name !== user?.name ||
-    formValue.email !== user?.email ||
+    formValue.name !== name ||
+    formValue.email !== email ||
     !!formValue.password;
 
   const handleSubmit = (e: SyntheticEvent) => {
@@ -40,8 +35,8 @@ export const Profile: FC = () => {
   const handleCancel = (e: SyntheticEvent) => {
     e.preventDefault();
     setFormValue({
-      name: user.name,
-      email: user.email,
+      name: name,
+      email: email,
       password: ''
     });
   };
